@@ -12,6 +12,6 @@ class Drug_Insp(Company):
         self.colleague = colleague
 
 
-Insp1 = Drug_Insp("Curtis", "0244987678", "supervisor", "Mr Salih")
+Inspector_1 = Drug_Insp("Curtis", "0244987678", "supervisor", "Mr Salih")
 
-print(Insp1.colleague)
+print(Inspector_1.colleague)
