@@ -26,10 +26,9 @@ def my_timer(original_func):
     return wrapper
 
 
-@my_timer   # This modifies the functionality of the function
+@my_timer  # This modifies the functionality of the function
 def display(name, age):
     print(f'My name is {name} and I am {age} years old')
 
 
-display('Kwame', 24)
 

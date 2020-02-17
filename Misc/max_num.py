@@ -1,7 +1,9 @@
+
 lst = [4, 3, 9, 12, 21, 1, 3]
 
 
-# functions to find the max number without using max function in the library
+# functions to find the max number without using max function in the library (faster code)
+
 def max_num(nums):
     # sorts list and returns the last number in list
     new_nums = sorted(lst)
