@@ -4,3 +4,4 @@ __pycache__/
 .idea
 new_file/
 venv/
+*.svg
