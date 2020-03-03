@@ -5,3 +5,4 @@ __pycache__/
 new_file/
 venv/
 *.svg
+*.png
