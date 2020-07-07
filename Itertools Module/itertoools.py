@@ -2,22 +2,24 @@ import itertools
 
 
 counter = itertools.count(0, 2)
+# print(next(counter))
 
 data = [10, 20, 30, 40]
 
-# daily_data = list(zip(counter, data))
+
+daily_data = list(zip(counter, data))
 # print(daily_data)
 
 # itertools.zip_longest unlike zip will continue to pair until the iterable runs out
 daily_data = list(itertools.zip_longest(range(10), data))
 
-
 # itertools.cycle is used when running a cycle
-switch = itertools.cycle(("On", "Off"))
+# switch = itertools.cycle(("On", "Off"))
 # print("Switch on light")
 # print(f'Light is {next(switch)}')
 # print("Switch off light")
 # print(f'Light is {next(switch)}')
+
 
 squares = map(pow, range(10), itertools.repeat( 2))
 

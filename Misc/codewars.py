@@ -119,8 +119,10 @@ def queue_time1(customers, n):
     return 0
 
 
+print(queue_time1([5, 8, 4, 2], 2))
+
 def queue_time2(customers, n):
-    """alternate code to previous code but faster"""
+    """faster alternate code to previous code"""
     heap = [0] * n
     for time in customers:
         heapq.heapreplace(heap, heap[0] + time)
@@ -145,9 +147,15 @@ def decrypt(code):
     return ' '.join(word)
 
 
+def create_phone_number(n):
+    k = ''.join([str(x) for x in n])
+    return f'({k[:3]}) {k[3:6]}-{k[6:]}'
 
 
+def create_phone_number2(n):
+    return "({}{}{}) {}{}{}-{}{}{}{}".format(*n)
 
 
-
-
+# print(cryptic("The Lord is good"))
+# a = decrypt(cryptic("The Lord is good"))
+# print(a)

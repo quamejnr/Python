@@ -10,7 +10,7 @@ def max_num(nums):
     return new_nums[-1]
 
 
-def max_num(nums):
+def max_num2(nums):
     max_number = 0  # 0 is assigned to max number
     for num in nums:
         if num > max_number:
