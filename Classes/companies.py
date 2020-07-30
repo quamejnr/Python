@@ -11,7 +11,3 @@ class Drug_Insp(Company):
         self.specialty = specialty
         self.colleague = colleague
 
-
-Inspector_1 = Drug_Insp("Curtis", "0244987678", "supervisor", "Mr Salih")
-
-print(Inspector_1.colleague)

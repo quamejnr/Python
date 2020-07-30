@@ -33,6 +33,7 @@ clients = [
     Clients("Daniel Okine Chemist", "Osu", "P.O.Box 543", True),
     Clients("Ernest Chemist", "Spintex", "P.O.Box 44", False)
 ]
+
 print("Hello! My name is Bliss. Another day, another yay!")
 
 """Include random.choice function to pick a random string from a list of choices to make 

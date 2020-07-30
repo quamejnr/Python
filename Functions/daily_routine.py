@@ -1,6 +1,10 @@
-import pprint
 
-# day = datetime.today().strftime('%A')
+import pprint
+import datetime
+
+
+day = datetime.date.today()
+print(day)
 day = "Sunday"
 weekday = ["Monday", 'Tuesday', "Wednesday", "Thursday", "Friday"]
 weekend = ["Saturday", 'Sunday']

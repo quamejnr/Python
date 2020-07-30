@@ -8,7 +8,7 @@ data = [10, 20, 30, 40]
 
 
 daily_data = list(zip(counter, data))
-# print(daily_data)
+print(daily_data)
 
 # itertools.zip_longest unlike zip will continue to pair until the iterable runs out
 daily_data = list(itertools.zip_longest(range(10), data))

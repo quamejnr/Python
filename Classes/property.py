@@ -34,13 +34,12 @@ class Employee:
         return f"{self.first} {self.last}"
 
 
-name_1 = "Akua Bliss"
-name_2 = "Gail Ofosu"
+name_1 = Employee("Akua", "Bliss")
+name_2 = Employee("Gail", "Ofosu")
 
 
-
-# print(emp_1.first)
-# print(emp_2.first)
+print(name_1.first)
+print(name_2.first)
 
 
 

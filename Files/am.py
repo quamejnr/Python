@@ -1,11 +1,7 @@
 import os
+import shutil
 
-os.chdir('F:\SERIES\All American\Season 1')
+os.chdir('D:\VIDEOS\YOUTUBE\CODING\Python')
 for f in os.listdir():
-    f_name, f_ext = os.path.splitext(f)
-    if f_ext == '.mkv':
-        new_name = f'{f_name}.mp4'
-        print(new_name)
-        os.rename(f, new_name)
-
-
+    if "Classes" in f:
+        shutil.move(f'{os.getcwd()}\\{f}', f'{os.getcwd()}\\Python-class\\{f}')

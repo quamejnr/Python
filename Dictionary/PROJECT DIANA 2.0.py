@@ -4,8 +4,18 @@ class Dictionary:
         self.word = word
         self.meaning = meaning
 
+    @staticmethod
+    def search():
+        user_input = input("Enter word: ")
+        for vocab in vocabs:
+            if user_input.casefold() == vocab.word:
+                return vocab.meaning
+            elif user_input.casefold() == vocab.meaning:
+                return vocab.word
+        return "Word not in dictionary"
 
-words = [
+
+vocabs = [
         Dictionary("hamper", "thwart"),
         Dictionary("buttress", "support"),
         Dictionary("amalgamate", "combine"),
@@ -14,7 +24,5 @@ words = [
 
 ]
 
-user_input = input("Enter word: ")
-for word in words:
-    if user_input == word.word:
-        print(word.meaning)
+
+print(Dictionary.search())
