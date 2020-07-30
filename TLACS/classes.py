@@ -1,6 +1,9 @@
 import datetime
 import copy
+import inflect
 
+
+p = inflect.engine()      # Using inflect to format my text(singular and plural nouns)
 
 
 class Shoe:
@@ -11,8 +14,9 @@ class Shoe:
         self.name = name
         self.size = size
 
-        if number > 1:                       # The number provided while creating objects duplicates objects
-            for i in (range(number)):
+        if number > 1:
+            for _ in (range(number)):
+                # The number provided while creating objects duplicates the objects
                 copy.deepcopy(self)
                 self.database.append(self)
         else:
@@ -22,6 +26,7 @@ class Shoe:
         return self.database
 
     def similar(self):
+        """ Checks if there are similar shoes in the database. """
         if len(self.database) != 0:
             for i in range(len(self.database)):
                 for j in range(i+1, len(self.database)):
@@ -30,11 +35,12 @@ class Shoe:
         return False
 
     def get_brand(self, brand):
+        """ Returns the number of shoes of a brand in the database. """
         result = []
         for obj in self.database:
             if obj.brand == brand:
                 result.append(obj)
-        return f"There is/are {len(result)} {brand} shoe(s) left"
+        return f"There {p.plural_verb('is',len(result))} {len(result)} {brand} {p.plural_noun('shoe',len(result))}"
 
     def __str__(self):
         return f'{self.brand} {self.name} \tSize:{self.size}'
@@ -43,21 +49,18 @@ class Shoe:
         return f"{self.brand, self.name, self.size}"
 
 
-#
-shoe1 = Shoe("Adidas", "Superstar", 42)
-shoe2 = Shoe("Nike", "Air Max", 41, 3)
-print(shoe2)
-print(shoe1.get_database())
-print(shoe1.get_brand('Adidas'))
+# shoe1 = Shoe("Adidas", "Superstar", 42)
+# shoe2 = Shoe("Nike", "Air Max", 41, 3)
+# print(shoe2.similar())
+# print(shoe1.get_database())
+# print(shoe1.get_brand('Adidas'))
 
 
 class SmsStore:
     log = []
+    time = datetime.datetime.now()
 
-    def __init__(self, text_message, form_number,
-                 has_viewed=False,
-                 time_arrived=datetime.datetime.now().strftime("%d/%m/%y %I:%M%p")):
-
+    def __init__(self, text_message, form_number, has_viewed=False, time_arrived=time.strftime("%d/%m/%y %I:%M%p")):
         self.text_message = text_message
         self.time_arrived = time_arrived
         self.form_number = form_number
@@ -112,9 +115,9 @@ class SmsStore:
         return f"{self.text_message, self.form_number, self.time_arrived, 'Unread'}"
 
 
-my_inbox = SmsStore('I miss you', '0244483726', True)
-new_msg = SmsStore('I miss you', '0244483726', True)
-my_inbox.add_new_arrival(new_msg)
+# my_inbox = SmsStore('I miss you', '0244483726', True)
+# new_msg = SmsStore('I miss you', '0244483726', True)
+# my_inbox.add_new_arrival(new_msg)
 # my_inbox.add_new_arrival(SmsStore("Hello Babe!", '0501427202', True))
 # print(my_inbox.message_count())
 # print(my_inbox.unread_indexes())
