@@ -3,9 +3,7 @@ import pprint
 import datetime
 
 
-day = datetime.date.today()
-print(day)
-day = "Sunday"
+today = datetime.date.today()
 weekday = ["Monday", 'Tuesday', "Wednesday", "Thursday", "Friday"]
 weekend = ["Saturday", 'Sunday']
 

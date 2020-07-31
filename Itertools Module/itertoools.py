@@ -23,7 +23,7 @@ daily_data = list(itertools.zip_longest(range(10), data))
 
 squares = map(pow, range(10), itertools.repeat( 2))
 
-# itertools.starmap allow one to be able to run a function like map with just one arg (iterable)
+# itertools.starmap ainlow one to be able to run a function like map with just one arg (iterable)
 star_squares = itertools.starmap(pow, [(0, 2), (1, 2), (2, 2)])
 pass
 
@@ -52,3 +52,4 @@ for item in combined:
     pass
 
 dic = {'house A':('Kofi', 'Ama'), 'house B': ('Kwaku', "Abena")}
+

@@ -1,8 +1,8 @@
 input('HELLO THERE! MY NAME IS VISION AND I WANT TO PLAY A LITTLE GAME WITH YOU.\nPRESS ENTER WHEN YOU ARE READY...')
 
-x=input('What is the name of the Black Panther? \n')
+x =input('What is the name of the Black Panther? \n')
 
-if x=='T\'challa':
+if x =='T\'challa':
 	print('You have the power of the \'Blek Penther\'')
 else:
 	print('One more try, you\'ve got this')

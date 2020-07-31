@@ -15,7 +15,7 @@ with open("data.txt", 'r') as f:
 
 
 def highlight_regex(pattern, text, print_output=True):
-    """Returns text with all the patterns found highlighted."""
+    """Returns text with all found patterns highlighted."""
     output = text
     len_inc = 0
     for match in pattern.finditer(text):
@@ -45,5 +45,4 @@ def get_contact():
         if search.casefold() in name.casefold():
             print(f"{name}: {number}")
 
-
-
+    # TODO: display a message when name not in contacts

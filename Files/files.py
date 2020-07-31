@@ -34,8 +34,8 @@
 # print(os.getcwd())
 
 
-def write_read(file, new_file):
-    """Function rewrites lines of text in the reversed order"""
+def reverse_text(file, new_file):
+    """Rewrites lines of text in the reverse order."""
     with open(file, 'r') as f:
         with open(new_file, 'w') as nf:
             content = f.read()
@@ -43,7 +43,7 @@ def write_read(file, new_file):
             nf.write('\n'.join(new_content[::-1]))
 
 
-# write_read('text.txt', 'new.txt')
+# reverse_text('text.txt', 'new.txt')
 
 
 def has_snake(file):
@@ -54,7 +54,7 @@ def has_snake(file):
 
 
 def numbering(file, new_file):
-    """Function numbers lines in a text."""
+    """Returns text with lines numbered."""
     with open(file, 'r') as f:
         with open(new_file, 'w') as nf:
             content = f.readlines()

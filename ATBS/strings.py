@@ -5,8 +5,8 @@ import sys
 import pyperclip
 
 passwords = {
-    'twitter': "1Plus2is3",
-    "facebook": "TheLordisgood"
+    'twitter': "1234555666",
+    "facebook": "2677833939"
 
 }
 

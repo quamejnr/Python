@@ -28,5 +28,3 @@ def pomodoro():
                     if final_question in answers:
                         continue
             break
-
-

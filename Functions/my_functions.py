@@ -10,7 +10,7 @@ def odd_or_even(arr):
     return 'odd'
 
 
-def maskify(cc):
+def mask(cc):
     """Function to replace all but the last 4 characters of your input with '#'."""
     anon = len(cc[:-4]) * "#"
     new_str = f'{anon}{cc[-4:]}'
@@ -273,16 +273,45 @@ def tickets2(people):
 
 def generate_pass(num):
     """Function to generate a random password."""
+
     return ''.join([random.choice(string.ascii_letters + string.digits) for _ in range(num)])
 
 
 def password_break():
-    """Function to break a password."""
+    """Takes input of password and figures out password.
+
+    Limitation: this can only figure out numbers only passwords.
+    Will be suitable for breaking safes and phone passwords
+    """
+    password = input("Enter password: ")
+    password = list(password)
+    go_figure = []
+    pos = 0
+
+    while True:
+        num = random.randint(0, 10)
+
+        if str(num) == password[pos]:
+            go_figure.append(num)
+            pos = pos + 1
+
+        if len(go_figure) == len(password):
+            go_figure = "".join(map(str, go_figure))
+            print(go_figure)
+            break
+
+
+def password_break2():
+    """Takes input of password and figures out password.
+
+    This function solves the limitation of the earlier code thus can break any password.
+    """
+
     password = input("Enter your password: ")
     index = 0
     new_password = []
     while len(new_password) != len(password):
-        rand_letter = random.choice(string.ascii_letters+string.digits)
+        rand_letter = random.choice(string.ascii_letters + string.digits + ' _-')
         if rand_letter == password[index]:
             new_password.append(rand_letter)
             index += 1

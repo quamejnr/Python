@@ -36,8 +36,8 @@ clients = [
 
 print("Hello! My name is Bliss. Another day, another yay!")
 
-"""Include random.choice function to pick a random string from a list of choices to make 
-bots more relational and unpredictable"""
+# TODO: Include random.choice function to pick a random string from a list of choices to make
+#  bots more relational and unpredictable
 
 
 while True:
