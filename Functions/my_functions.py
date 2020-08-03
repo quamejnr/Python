@@ -1,6 +1,7 @@
 import heapq
 import random
 import string
+import inflect
 
 
 def odd_or_even(arr):
@@ -416,3 +417,24 @@ def counting_letters(sentence):
         count.setdefault(char, 0)
         count[char] += 1
     return count
+
+
+def binary_search(array, target):
+
+    p = inflect.engine()          # Used for formatting
+
+    mx = len(array)
+    mn = 0
+    counter = 1
+    while mn <= mx:
+        index = (mx + mn)//2
+        if target == array[index]:
+            return f"Found {target} in {counter} {p.plural_noun('try', counter)}"
+        if target < array[index]:
+            mx = index - 1
+            counter += 1
+        if target > array[index]:
+            mn = index + 1
+            counter += 1
+    return -1
+

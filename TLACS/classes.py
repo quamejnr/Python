@@ -49,8 +49,9 @@ class Shoe:
         return f"{self.brand, self.name, self.size}"
 
 
-# shoe1 = Shoe("Adidas", "Superstar", 42)
-# shoe2 = Shoe("Nike", "Air Max", 41, 3)
+shoe1 = Shoe("Adidas", "Superstar", 42)
+shoe2 = Shoe("Nike", "Air Max", 41, 3)
+print(shoe2.__dict__)
 # print(shoe2.similar())
 # print(shoe1.get_database())
 # print(shoe1.get_brand('Adidas'))

@@ -1,6 +1,7 @@
 import heapq
 import random
 import string
+import itertools
 
 
 def odd_or_even(arr):
@@ -387,3 +388,18 @@ def counting_letters(sentence):
         count.setdefault(char, 0)
         count[char] += 1
     return count
+
+
+def anagrams(word, words):
+    result = []
+    anagram = [''.join(i) for i in itertools.permutations(word)]
+    for i in range(len(words)):
+        if words[i] in anagram:
+            result.append(words[i])
+    return result
+
+
+def anagrams2(word, words):
+    """An efficient code to previous code"""
+    match = sorted(word)
+    return [w for w in words if match == sorted(w)]   # Each word in words is sorted and compared with match

@@ -10,6 +10,10 @@ pattern.findall returns all the matching pattern as a list
 pattern.finditer returns all the matching pattern as objects
 """
 
+NUMBER = re.compile(r'\d{3}-\d{3}-\d{4}|\+\d{12}|0\d{9}')
+NAME = re.compile(r'[A-Z][a-z]+ ([A-Z][a-z]*-?[A-Z][a-z]+|[A-Z][a-z]+( [A-Z][a-z]+)?[^\s.])')
+EMAIL = re.compile(r'[\w.]+@([a-z]+)\.([a-z]+\.[a-z]+|[a-z]+)')
+
 with open("data.txt", 'r') as f:
     data = f.read()
 
@@ -29,17 +33,16 @@ def highlight_regex(pattern, text, print_output=True):
         return output
 
 
-name_pattern = re.compile(r'^[A-Z][a-z]*.*', flags=re.M)
-num_pattern = re.compile(r'\d{3}-\d{3}-\d{4}')
-
-phone_nums = num_pattern.findall(data)
-names = name_pattern.findall(data)
-
-contacts = list(zip(names, phone_nums))
-
-
 def get_contact():
     """ Displays the contacts of all possible names after being given a name. """
+
+    name_pattern = re.compile(r'^[A-Z][a-z]*.*', flags=re.M)
+    num_pattern = re.compile(r'\d{3}-\d{3}-\d{4}')
+
+    phone_nums = num_pattern.findall(data)
+    names = name_pattern.findall(data)
+
+    contacts = list(zip(names, phone_nums))
     search = input('Contact Name:')
     for name, number in contacts:
         if search.casefold() in name.casefold():
