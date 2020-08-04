@@ -403,3 +403,22 @@ def anagrams2(word, words):
     """An efficient code to previous code"""
     match = sorted(word)
     return [w for w in words if match == sorted(w)]   # Each word in words is sorted and compared with match
+
+
+def socks(n, ar):
+    """Returns the number of pairs in an array"""
+    new_arr = sorted(ar)
+    c = new_arr[0]
+    counter = 0
+    total = 0
+
+    for i in range(n):
+        if new_arr[i] == c:
+            counter += 1
+        else:
+            total += counter // 2
+            counter = 1
+            c = new_arr[i]
+
+    total += counter//2
+    return total
