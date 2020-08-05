@@ -51,10 +51,6 @@ class Shoe:
 
 shoe1 = Shoe("Adidas", "Superstar", 42)
 shoe2 = Shoe("Nike", "Air Max", 41, 3)
-print(shoe2.__dict__)
-# print(shoe2.similar())
-# print(shoe1.get_database())
-# print(shoe1.get_brand('Adidas'))
 
 
 class SmsStore:
@@ -128,5 +124,3 @@ class SmsStore:
 # my_outbox = SmsStore("Ohemaa", '023400020')
 # print(my_outbox.all_messages())
 
-
-import random

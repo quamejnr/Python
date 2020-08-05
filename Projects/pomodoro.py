@@ -10,6 +10,10 @@ def timer(minutes):
 
 
 def pomodoro():
+    """
+    Uses the pomodoro technique to help you focus
+
+    """
     answers = ['yes', 'y', 'ok', 'sure', 'yh', 'yeah']
 
     ans = input("Want to start focus?\n")

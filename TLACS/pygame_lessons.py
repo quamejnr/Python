@@ -14,6 +14,8 @@ def main():
         if ev.type == pygame.QUIT:
             break
 
+        # Data structures and algorithms for game
+
         main_surface.fill((0, 200, 255))
         main_surface.fill(color, small_rect)
         pygame.display.flip()
@@ -22,3 +24,6 @@ def main():
 
 
 main()
+
+
+

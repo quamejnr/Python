@@ -30,4 +30,4 @@ if y == 'Gamora':
     if z == 'Black Panther':
         print('Avengers!!! Assemble')
     else:
-        print('Are you kdding me?')
+        print('Are you kidding me?')

@@ -3,7 +3,7 @@
 9. Ninth line
 8. Eighth line
 7. Seventh line
-6. Sith line
+6. Sixth line
 5. Fifth line
 4. Fourth line
 3. Third line
