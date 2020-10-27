@@ -3,6 +3,8 @@ import random
 import string
 import inflect
 import os
+from functools import cache
+import timeit
 
 
 def odd_or_even(arr):
