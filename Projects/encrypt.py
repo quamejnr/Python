@@ -3,7 +3,7 @@ File encryption functions.
 """
 
 
-def cryptic(file, key):
+def encrypt(file, key):
     """
     Encrypts file using a key which is an integer.
 
@@ -34,5 +34,6 @@ def decrypt(file, key):
     with open("decrypted.txt", 'w') as nf:
         decode = ''.join(list(map(lambda x: chr(ord(x)-key), text)))
         nf.write(decode)
+
 
 

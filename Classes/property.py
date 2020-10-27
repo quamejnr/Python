@@ -38,7 +38,7 @@ name_1 = Employee("Akua", "Bliss")
 name_2 = Employee("Gail", "Ofosu")
 
 
-print(name_1.first)
+print(name_1.fullname)
 print(name_2.first)
 
 

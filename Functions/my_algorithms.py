@@ -2,6 +2,7 @@ import heapq
 import random
 import string
 import inflect
+import os
 
 
 def odd_or_even(arr):
@@ -311,12 +312,14 @@ def password_break2():
     password = input("Enter your password: ")
     index = 0
     new_password = []
+    count = 0
     while len(new_password) != len(password):
         rand_letter = random.choice(string.ascii_letters + string.digits + ' _-')
         if rand_letter == password[index]:
             new_password.append(rand_letter)
             index += 1
-    return ''.join(new_password)
+        count += 1
+    return ''.join(new_password), count
 
 
 def merge(lst1, lst2):
@@ -438,3 +441,95 @@ def binary_search(array, target):
             counter += 1
     return -1
 
+
+def base_num(num, base):
+    """ Returns a number in the base provided. """
+    lst = []
+    while num >= base:
+        remainder = num % base
+        lst.append(remainder)
+        num = num // base
+    lst.append(num)
+    lst.reverse()
+    result = map(str, lst)
+    return ''.join(result)
+
+def display(path):
+    """ Search for files in a path with keyword. """
+    dir_list = os.listdir(path)
+    dir_list2 = os.listdir('C:\\Users\\Quame Junior\\Downloads\\Video')
+    dir_list.sort()
+    dir_list2.sort()
+    for f in dir_list:
+        fullname = os.path.join(path, f)
+        if os.path.isdir(fullname):
+            display(fullname)
+        else:
+            print(f)
+
+
+def compare(path, path2):
+    """ Delete files in multiple places. """
+    dir_list = os.listdir(path)
+    dir_list2 = os.listdir(path2)
+    dir_list.sort()
+    dir_list2.sort()
+    for f in dir_list:
+        fullname = os.path.join(path, f)
+        fullname2 = os.path.join(path2, f)
+        if os.path.isdir(fullname):
+            compare(fullname, path2)
+        elif f in dir_list2:
+            # deletes file permanently
+            # os.unlink(fullname2)
+            print(f)
+
+
+def check(path):
+    for folder, sub_folders, filenames in os.walk(path):
+        for filename in filenames:
+            yield filename
+
+
+def find2(path_1, path_2):
+    path_1 = list(check(path_1))
+    path_1.sort()
+    path_2 = list(check(path_2))
+    path_2.sort()
+    for file in path_1:
+        if file in path_2:
+            print(file)
+
+
+def find(path_1, path_2):
+    """ Faster code to earlier code using binary search"""
+    path_1 = list(check(path_1))
+    path_1.sort()
+    path_2 = list(check(path_2))
+    path_2.sort()
+    if len(path_1) <= len(path_2):
+        for file in path_1:
+            mx = len(path_2)
+            mn = 0
+            while mn <= mx:
+                index = (mx + mn)//2
+                if file == path_2[index]:
+                    print(file)
+                    break
+                elif file < path_2[index]:
+                    mx = index - 1
+                else:
+                    mn = index + 1
+    else:
+        for file in path_2:
+            mx = len(path_1)
+            mn = 0
+            while mn <= mx:
+                index = (mx + mn)//2
+                if file == path_1[index]:
+                    print(file)
+                    break
+                elif file < path_1[index]:
+                    mx = index - 1
+                else:
+                    mn = index + 1

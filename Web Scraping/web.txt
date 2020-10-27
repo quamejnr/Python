@@ -1,0 +1,8 @@
+Retrieve download links
+
+make folder
+
+if episode in folder
+    pass
+else
+    download
