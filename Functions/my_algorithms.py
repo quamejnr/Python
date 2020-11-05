@@ -456,6 +456,14 @@ def base_num(num, base):
     result = map(str, lst)
     return ''.join(result)
 
+
+def ctb(n, base):
+    """ Returns a number in the base provided. """
+    if n > 1:
+        ctb(n//base, base)
+    print(n % base)
+
+
 def display(path):
     """ Search for files in a path with keyword. """
     dir_list = os.listdir(path)

@@ -1,3 +1,7 @@
+"""
+Program extracts contact details from text
+"""
+
 import re
 from colorama import Back, Style
 

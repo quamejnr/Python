@@ -1,3 +1,7 @@
+"""
+Program returns common files that exist in different paths and gives you the option to delete.
+"""
+
 import os
 from send2trash import send2trash
 import inflect
