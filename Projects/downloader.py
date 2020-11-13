@@ -41,4 +41,3 @@ for episode in soup.find_all('span', class_='notranslate')[:25]:
             downloader = IDMan()
             downloader.download(ep_link, save_path)           # downloads file
             print(f'{ep_name} downloading...')
-
