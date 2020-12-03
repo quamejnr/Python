@@ -1,5 +1,5 @@
 #! python3
-# strings.py
+# passwords.py
 
 import sys
 import pyperclip

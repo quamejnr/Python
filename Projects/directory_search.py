@@ -1,4 +1,8 @@
 import os
+import sys
+
+path = sys.argv[1]
+keyword = sys.argv[2]
 
 
 def search(path, keyword=''):
@@ -13,3 +17,6 @@ def search(path, keyword=''):
             if keyword.casefold() in f.casefold():
                 print(f)
 
+
+if __name__ == '__main__':
+    search(path, keyword)

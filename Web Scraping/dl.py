@@ -4,13 +4,13 @@ from idm import IDMan
 import os
 import re
 
-url = 'https://www.lightdl.xyz/2019/02/su.html'
+url = ''
 source = requests.get(url).text
 soup = BeautifulSoup(source, 'lxml')
 link = soup.find('span', class_='notranslate')
 dl_link = link.a['href']
 series_name = re.split(r'[\s|_]', link.text.lstrip())[0]
-path = r'D:\VIDEOS\CINEMA\TV SHOWS'
+path = r''
 save_path = os.path.join(path, series_name)
 ep_list = os.listdir(save_path)
 
@@ -37,3 +37,5 @@ for episode in soup.find_all('span', class_='notranslate')[:25]:
             downloader.download(ep_link, save_path)           # downloads file
             print(f'{ep_name} downloading...')
 
+
+get

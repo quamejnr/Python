@@ -81,4 +81,5 @@ def find(path_1, path_2):
             pass
 
 
-find(r"F:\MOVIES", r"D:\VIDEOS\CINEMA\MOVIES")
+if __name__ == '__main__':
+    find(r"F:\MOVIES", r"D:\VIDEOS\CINEMA\MOVIES")

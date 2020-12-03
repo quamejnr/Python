@@ -12,6 +12,10 @@ def encrypt(file, key):
     file = file to be decrypted
 
     key = Key is an integer between 0-9
+
+    :returns
+
+    encrypted file
     """
 
     with open(file, 'r') as f:
