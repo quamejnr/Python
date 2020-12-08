@@ -54,11 +54,15 @@ def get_contact(file):
 
     contacts = list(zip(names, phone_nums))
     search = input('Contact Name:')
+    results = {}
     for name, number in contacts:
         if search.casefold() in name.casefold():
-            print(f"{name}: {number}")
-
-    # TODO: display a message when name not in contacts
+            results[name] = number
+    if results == {}:
+        print("No contact found")
+    else:
+        for i in results:
+            print(f"{i}: {results[i]}")
 
 
 if __name__ == '__main__':

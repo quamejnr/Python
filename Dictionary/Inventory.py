@@ -22,4 +22,3 @@ def display_inventory(inventory):  # function for displaying the keys and values
         print(f'{v} {k}')  # prints the key and its value in the inventory
 
     print(f'Total number of items:{result}')  # prints the sum of the values in the inventory
-
