@@ -35,6 +35,18 @@ mins = [1, 2, 3, 1, 2]
 
 
 def queue_time(customers, tills):
+    """
+        Function that calculates the maximum amount of time it will take for all customers to be attended to.
+
+      :param customers: the minutes each customer will take at the till
+      :type customers: list
+
+      :param tills: the number of tills available
+      :type tills: int
+
+      :return: None
+    """
+
     with concurrent.futures.ThreadPoolExecutor(max_workers=tills) as executor:
         results = [executor.submit(timer, customer) for customer in customers]
         for f in concurrent.futures.as_completed(results):

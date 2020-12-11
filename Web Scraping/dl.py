@@ -16,7 +16,8 @@ ep_list = os.listdir(save_path)
 
 
 try:
-    os.mkdir(save_path)                                         # creates directory if none exists
+    # creates directory if none exists
+    os.mkdir(save_path)
     print(f'Creating {series_name} Folder...')
 except FileExistsError:
     print(f'{series_name} Folder already exists')
@@ -24,18 +25,21 @@ except FileExistsError:
 for episode in soup.find_all('span', class_='notranslate')[:25]:
 
     try:
-        ep_link = episode.a['href']                             # retrieves download link
+        # retrieves download link
+        ep_link = episode.a['href']
         ep_name = ep_link.split('/')[-1]
     except TypeError:
-        print('Download link unavailable....')
+        print('Download link unavailable...')
         continue
     else:
-        if ep_name in ep_list:                                  # checks if file already exists
+        # checks if file already exists,
+        # ignores if it exits and downloads if it doesn't.
+        if ep_name in ep_list:
             print(f"{ep_name} already exists")
         else:
+            # The file is downloaded with IDM
             downloader = IDMan()
-            downloader.download(ep_link, save_path)           # downloads file
+            downloader.download(ep_link, save_path)
             print(f'{ep_name} downloading...')
 
 
-get
