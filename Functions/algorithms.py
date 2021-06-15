@@ -543,3 +543,40 @@ def find(path_1, path_2):
                     mx = index - 1
                 else:
                     mn = index + 1
+
+
+def longest_substring(s: str) -> int:
+    mx = 0
+    dic = {}
+    for i in range(len(s)):
+        dic.setdefault(s[i], 1)
+        for j in range(i+1, len(s)):
+            if s[j] not in dic:
+                dic.setdefault(s[j], 1)
+            else:
+                break
+        count = sum(dic.values())
+        dic = {}
+        if count > mx:
+            mx = count
+    return mx
+
+
+def longest_substring2(s: str) -> int:
+    """A more effective code"""
+    max_so_far = start = end = 0
+    dict_last_indices = {}
+
+    for ind, val in enumerate(s):
+        if val in dict_last_indices and start <= dict_last_indices[val]:
+            start = dict_last_indices[val] + 1
+        else:
+            curr_length = (ind - start) + 1
+            if curr_length > max_so_far:
+                max_so_far = curr_length
+                end = ind
+        dict_last_indices[val] = ind
+
+    start = end - max_so_far + 1
+
+    return max_so_far

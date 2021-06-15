@@ -40,4 +40,3 @@ def decrypt(file, key):
         nf.write(decode)
 
 
-

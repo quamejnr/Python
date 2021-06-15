@@ -6,6 +6,7 @@ import inflect
 p = inflect.engine()      # Using inflect to format my text(singular and plural nouns)
 
 
+# A shoe database
 class Shoe:
     database = []
 
@@ -53,8 +54,8 @@ shoe1 = Shoe("Adidas", "Superstar", 42)
 shoe2 = Shoe("Nike", "Air Max", 41, 3)
 
 
+# A model of a messaging app
 class SmsStore:
-    log = []
     time = datetime.datetime.now()
 
     def __init__(self, text_message, form_number, has_viewed=False, time_arrived=time.strftime("%d/%m/%y %I:%M%p")):
@@ -62,6 +63,7 @@ class SmsStore:
         self.time_arrived = time_arrived
         self.form_number = form_number
         self.has_viewed = has_viewed
+        self.log = []
         self.log.append(self)
 
     def add_new_arrival(self, person):

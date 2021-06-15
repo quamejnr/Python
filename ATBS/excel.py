@@ -9,12 +9,12 @@ sheet = wb.active
 #         print(values.value)
 #     print('---End of Row---\n')
 # print("------THE END-------")
-# print(a.value)
+#
 # cell = sheet['B1']
 # print(cell.value)
 # for i in range(1, sheet.max_row + 1):
 #     print(sheet.cell(row=i, column=1).value, sheet.cell(row=i, column=3).value, sheet.cell(row=i, column=2).value)
-
+#
 # for obj in sheet['A1': 'A3']:
 #     for cell in obj:
 #         print(cell.value)
@@ -22,7 +22,7 @@ sheet = wb.active
 # print("------THE END-------")
 # print(cell.row)
 # print(cell.column)
-
+#
 # cells = sheet.rows
 # for cell in cells:
 #     for obj in cell:

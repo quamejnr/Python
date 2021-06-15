@@ -12,3 +12,5 @@ def dl_pp():
     print('downloading picture...')
     loader.download_profile(user, profile_pic_only=True)
     print('picture downloaded')
+
+dl_pp()
