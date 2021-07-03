@@ -1,4 +1,6 @@
-# Some functions to explain divide and conquer
+# Some functions to explain divide and conquer ---> Recursion
+import string
+
 
 def total(array):
     """
@@ -58,10 +60,47 @@ def maximum(array):
     return maximum(array[1:])
 
 
+def is_palindrome(chars):
+    """
+    Checks if a word or a phrase is a palindrome
+    :param chars: word or phrase (str)
+    :return: True if word or phrase is a palindrome, False if otherwise
+    """
+
+    # Change characters into lower case and remove all whitespaces
+    chars = ''.join([char.lower() for char in chars if char in string.ascii_letters])
+
+    if len(chars) <= 1:
+        return True
+    else:
+        return chars[0] == chars[-1] and is_palindrome(chars[1:-1])
+
+
+def fib(n, dic):
+    if n in dic:
+        return dic[n]
+    else:
+        ans = fib(n - 1, dic) + fib(n - 2, dic)
+        dic[n] = ans
+        return ans
+
+
+def fib2(n):
+    """Slower Version"""
+    if n <= 1:
+        return 1
+    else:
+        return fib2(n-1) + fib2(n-2)
+
+
+# d = {1: 1, 2: 2}
+# print(fib(400, d))
 nums = [2, 42, 5, 6, 7, 10, 2, 3, 9]
 
 # print(total(nums))
 # print(total1(nums))
 # print(total2(nums))
 # print(count(nums))
-print(maximum(nums))
+# print(maximum(nums))
+
+print(is_palindrome('Was it a car or a cat I saw?'))

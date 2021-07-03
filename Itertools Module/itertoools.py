@@ -21,9 +21,9 @@ daily_data = list(itertools.zip_longest(range(10), data))
 # print(f'Light is {next(switch)}')
 
 
-squares = map(pow, range(10), itertools.repeat( 2))
+squares = map(pow, range(10), itertools.repeat(2))
 
-# itertools.starmap ainlow one to be able to run a function like map with just one arg (iterable)
+# itertools.starmap allows one to be able to run a function like map with just one arg (iterable)
 star_squares = itertools.starmap(pow, [(0, 2), (1, 2), (2, 2)])
 pass
 

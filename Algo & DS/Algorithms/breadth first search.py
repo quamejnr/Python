@@ -51,10 +51,9 @@ def shortest_path(path, start, end):
 
         if bus_stop not in searched:
             if bus_stop == end:
-                # printing the shortest route taken and appending the destination
                 shortest_route = [bus_stop]
 
-                # putting the bus stop into the shortest route list as long as it has a key
+                # puts the bus stop into the shortest route list as long as it has a key
                 while get_key(path, bus_stop):
                     bus_stop = get_key(path, bus_stop)
                     shortest_route.append(bus_stop)
@@ -69,4 +68,6 @@ def shortest_path(path, start, end):
 
 
 shortest_path(paths, 'tp', 'gg')
+
+
 
