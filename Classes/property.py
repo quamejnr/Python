@@ -27,7 +27,7 @@ class Employee:
 
     @classmethod
     def from_string(cls, name):
-        first, last= name.split(" ")
+        first, last = name.split(" ")
         return cls(first, last)
 
     def __str__(self):
@@ -40,7 +40,8 @@ name_2 = Employee("Gail", "Ofosu")
 
 print(name_1.fullname)
 print(name_2.first)
-
+name_1.from_string('Kwame Akuamoah-Boateng')
+print(name_1)
 
 
 

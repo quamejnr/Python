@@ -1,70 +1,12 @@
-# class Node:
-#     """
-#     An object for storing of a single node of a linked list
-#     Model two attributes - data and the reference to the next node in the list
-#     """
-#
-#     def __init__(self, data=None, nxt=None):
-#         self.data = data
-#         self.nxt = nxt
-#
-#     def get_data(self):
-#         return self.data
-#
-#     def get_next(self):
-#         return self.nxt
-#
-#     def add(self, data):
-#         new_node = Node(data)
-#         # new_node.nxt =
-#
-#     def __str__(self):
-#         return self.data
-#
-#
-# def print_list(node):
-#     while node is not None:
-#         print(node, end=' ')
-#         node = node.nxt
-#
-#
-# def print_backwards(node):
-#
-#     if node is not None:
-#
-#         # This is a recursive function where when a node is not None,
-#         # the function calls itself on the next item in the linked list.
-#         # This is done until it gets to the last node with no next item,
-#         # then it starts to print the list from the last item thus
-#         # printing the list backwards.
-#         print_backwards(node.nxt)
-#         print(node, end=' ')
-#
-#
-# node1 = Node('1')
-# node2 = Node('2')
-# node3 = Node('3')
-#
-# node1.nxt = node2
-# node2.nxt = node3
-
-# print(node1)
-
-# print_backwards(node1)
-
 
 class Node:
     """
-    An object for storing of a single node of a linked list
-    Model two attributes - data and the reference to the next node in the list
+    A data type that stores data and a reference to the next node
     """
 
-    def __init__(self, data):
+    def __init__(self, data, nxt=None):
         self.data = data
-        self.next_node = None
-
-    def __repr__(self):
-        return f'Node: {self.data}'
+        self.nxt = nxt
 
 
 class LinkedList:
@@ -77,67 +19,205 @@ class LinkedList:
             return False
         return True
 
-    def size(self):
+    @property
+    def length(self):
+        current_node = self.head
         count = 0
-        current = self.head
 
-        while current:
-            current = current.next_node
+        while current_node:
             count += 1
+            current_node = current_node.nxt
 
         return count
 
-    def add(self, data):
+    def search(self, element):
         """
-        Adds new node containing data at the head of the Linked List
-
-        :param data: the data of the node to be added
+        Prints position of an element if found in a Linked List
+        :param element: element being searched for
         :return: None
+        """
+        current_node = self.head
+        position = 0
 
-        Takes O(1) time
+        while current_node:
+            if current_node.data == element:
+                print(f'Node found in position: {position}')
+                return
+            current_node = current_node.nxt
+            position += 1
+        print('Node not found')
+
+    def insert_at_head(self, data):
+        """
+        inserts node at head
+        :param data: data
+        :return: None
+        """
+        node = Node(data, self.head)
+        self.head = node
+        return
+
+    def insert_at_tail(self, data):
+        """
+        inserts node at the end
+        :param data: data
+        :return: None
+        """
+        node = Node(data)
+        current_node = self.head
+        previous_node = None
+
+        if current_node is None:
+            self.head = node
+            return
+
+        while current_node:
+            previous_node = current_node
+            current_node = current_node.nxt
+
+        previous_node.nxt = node
+        node.nxt = None
+
+    def append_values(self, data_list):
+        """
+        Inserts multiple data to the end of linked list
+        :param data_list: list
+        :return: None
+        """
+        for data in data_list:
+            self.insert_at_tail(data)
+        # self.insert_at_tail(None)
+
+    def insert_at(self, position, data):
+        """
+        inserts node at a position
+        :param position: position
+        :param data: data
+        :return: None
+        """
+        if position < 0 or position > self.length:
+            raise Exception("Invalid Index")
+
+        if position == 0:
+            self.insert_at_head(data)
+            return
+
+        node = Node(data)
+        current_node = self.head
+        previous_node = None
+
+        for _ in range(position):
+            previous_node = current_node
+            current_node = current_node.nxt
+
+        next_node = current_node
+        previous_node.nxt = node
+        node.nxt = next_node
+
+    def remove_at(self, position):
+        """
+        Removes element at a position
+        :param position: position
+        :return: None
         """
 
-        new_node = Node(data)
-        new_node.next_node = self.head
-        self.head = new_node
+        if position < 0 or position >= self.length:
+            raise Exception("Invalid Index")
 
-    def search(self, key):
+        if position == 0:
+            self.head = self.head.nxt
+            return
+
+        current_node = self.head
+        previous_node = None
+        for _ in range(position):
+            previous_node = current_node
+            current_node = current_node.nxt
+
+        next_node = current_node.nxt
+        previous_node.nxt = next_node
+        return
+
+    def reverse(self):
+        current_node = self.head
+        previous_node = None
+
+        while current_node:
+            next_node = current_node.nxt
+            current_node.nxt = previous_node
+            previous_node = current_node
+            current_node = next_node
+
+        self.head = previous_node
+        return
+
+    # def reverse_rec(self, head):
+    #     if head is None:
+    #         return head
+    #     if head.nxt is None:
+    #         return head
+    #         # head.nxt = self.head
+    #     new_head = self.reverse_rec(head.nxt)
+    #     head.nxt.nxt = head
+    #     head.nxt = None
+    #
+    #     return new_head
+    # TODO: Still not working
+
+    def print_forwards(self):
+        current_node = self.head
+
+        if current_node is None:
+            print('Linked List is empty')
+            return
+
+        while current_node:
+            print(current_node.data, end=' --> ')
+            current_node = current_node.nxt
+        print('None')
+
+    def print_forwards_rec(self, head):
         """
-        Searches for the first Node containing data that matches the key
-
-        :param key: the data being searched for
-        :return: True if found, False if not
-
-        Takes O(n) time
+        print the linked list forwards using recursion
+        :param head: head of the linked list
+        :return: None
         """
+        if head:
+            print(head.data, end=" --> ")
+            self.print_forwards_rec(head.nxt)
+            return
+        print("None")
 
-        current = self.head
-
-        while current:
-            if current.data == key:
-                return current
-            else:
-                current = current.next_node
-
-        return False
+    def print_backwards(self, head):
+        """
+        prints a linked list backwards using recursion
+        :param head: the head of a linked list
+        :return: None
+        """
+        if head:
+            self.print_backwards(head.nxt)
+            print(head.data, end=' --> ')
+        return
 
     def __repr__(self):
         nodes = []
-        current = self.head
+        current_node = self.head
 
-        while current:
-            nodes.append(f'{current.data}')
-            current = current.next_node
-        nodes.append("None")
-        return '-->'.join(nodes)
+        while current_node:
+            nodes.append(f'{current_node.data}')
+            current_node = current_node.nxt
+        nodes.append('None')
+        return ' --> '.join(nodes)
 
 
-l = LinkedList()
+if __name__ == '__main__':
+    ll = LinkedList()
 
-l.add(1)
-l.add(2)
-l.add(3)
+    ll.append_values([3, 4, 5, 6, 19, 8])
+    ll.print_forwards()
+    ll.reverse()
+    ll.print_forwards()
+    # ll.print_backwards(ll.head)
 
-print(l)
-n = l.search(3)
-print(n)
+
+

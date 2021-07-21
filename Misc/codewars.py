@@ -422,3 +422,5 @@ def socks(n, ar):
 
     total += counter//2
     return total
+
+

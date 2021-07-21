@@ -1,5 +1,7 @@
 # Some functions to explain divide and conquer ---> Recursion
 import string
+import timeit
+import sys
 
 
 def total(array):
@@ -85,6 +87,9 @@ def fib(n, dic):
         return ans
 
 
+d = {1: 1, 2: 2}
+
+
 def fib2(n):
     """Slower Version"""
     if n <= 1:
@@ -93,9 +98,32 @@ def fib2(n):
         return fib2(n-1) + fib2(n-2)
 
 
-# d = {1: 1, 2: 2}
+def fib3(n):
+    """Fibonacci sequence using iteration. Uses less memory compared to recursion"""
+
+    ans = 0
+
+    if n == 0:
+        return ans
+
+    if n == 1:
+        return 1
+
+    elif n == 2:
+        return 2
+
+    prev2, prev1 = 1, 2
+
+    for idx in range(3, n+1):
+        ans = prev2 + prev1
+
+        prev2, prev1 = prev1, ans
+
+    return ans
+
+
 # print(fib(400, d))
-nums = [2, 42, 5, 6, 7, 10, 2, 3, 9]
+# nums = [2, 42, 5, 6, 7, 10, 2, 3, 9]
 
 # print(total(nums))
 # print(total1(nums))
@@ -103,4 +131,7 @@ nums = [2, 42, 5, 6, 7, 10, 2, 3, 9]
 # print(count(nums))
 # print(maximum(nums))
 
-print(is_palindrome('Was it a car or a cat I saw?'))
+# print(is_palindrome('Was it a car or a cat I saw?'))
+#
+# print(sys.getsizeof(fib3(4000)))
+# print(sys.getsizeof(fib(200, d)))
