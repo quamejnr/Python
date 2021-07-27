@@ -1,0 +1,23 @@
+Library
+    attributes
+        - collection of books (sorted)
+
+
+    methods:
+        - add books
+        - lends to borrower
+        - keeps tracks of people lent to (hash map)
+        - receives from borrower
+
+
+Book
+    attributes
+        - title of book
+        - author
+
+
+Borrower
+    attributes
+        - name
+
+

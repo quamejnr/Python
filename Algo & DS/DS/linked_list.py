@@ -151,17 +151,25 @@ class LinkedList:
         self.head = previous_node
         return
 
-    # def reverse_rec(self, head):
-    #     if head is None:
-    #         return head
-    #     if head.nxt is None:
-    #         return head
-    #         # head.nxt = self.head
-    #     new_head = self.reverse_rec(head.nxt)
-    #     head.nxt.nxt = head
-    #     head.nxt = None
-    #
-    #     return new_head
+    def reverse_rec(self, head):
+        current_node = head
+        # print(current_node.data)
+        if current_node is None:
+            return current_node
+        if current_node.nxt is None:
+            current_node = self.head
+            return current_node
+        else:
+            next_node = current_node.nxt
+            # previous_node = current_node
+            self.reverse_rec(current_node.nxt)
+
+            next_node.nxt = current_node
+
+            print(current_node.data, next_node.data, )
+            # print(current_node.data)
+        current_node.nxt = None
+        return
     # TODO: Still not working
 
     def print_forwards(self):
@@ -215,7 +223,7 @@ if __name__ == '__main__':
 
     ll.append_values([3, 4, 5, 6, 19, 8])
     ll.print_forwards()
-    ll.reverse()
+    ll.reverse_rec(ll.head)
     ll.print_forwards()
     # ll.print_backwards(ll.head)
 
