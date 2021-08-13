@@ -1,5 +1,3 @@
-import time
-
 """ Recursion """
 
 
@@ -27,9 +25,10 @@ def is_even(x):
 
 def power2(x, n):
     """
-    Using another method to find the power. x^n can be written as x^(n/2) * x^(n/2) for even numbers and x * x^(n-1)
+    Using another method to find the power.
+    x^n can be written as x^(n/2) * x^(n/2) for even numbers and x * x^(n-1)
     if n is odd.
-    This takes logarithmic time - O(logn)
+    This takes logarithmic time - O(log n)
     """
     if n == 0:
         return 1
@@ -38,8 +37,3 @@ def power2(x, n):
         return ans * ans
 
     return x * power2(x, n-1)
-
-
-print(power(5, 15))
-print(power2(5, 15))
-
