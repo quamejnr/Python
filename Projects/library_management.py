@@ -23,8 +23,10 @@ class Borrower:
 class Library:
 
     def __init__(self):
-        self.books_collection: list[Book] = []             # All books of the library whether physically present or not
-        self.books_available: list[Book] = []              # All books physically present in the library
+        # All books owned by the library
+        self.books_collection: list[Book] = []
+        # Only books available to be borrowed
+        self.books_available: list[Book] = []
         self.borrowed_books = {}
 
     def add_book(self, book: Book) -> None:
@@ -84,25 +86,25 @@ class Library:
 
 
 if __name__ == "__main__":
-
-    library = Library()
-
-    harry_potter = Book('Harry Potter', 'J. K. Rowling')
-    LOTR = Book('Lord of the Rings', ' J. R. R. Tolkien')
-    GOT = Book('Game of Thrones', 'George R. R. Martin')
-    americannah = Book("Americannah", 'Chimamanda Ngozi')
-
-    # print(library.books_collection)
-
-    library.add_books([harry_potter, LOTR, GOT, americannah])
+    pass
+    # library = Library()
+    #
+    # harry_potter = Book('Harry Potter', 'J. K. Rowling')
+    # LOTR = Book('Lord of the Rings', ' J. R. R. Tolkien')
+    # GOT = Book('Game of Thrones', 'George R. R. Martin')
+    # americannah = Book("Americannah", 'Chimamanda Ngozi')
+    #
+    # # print(library.books_collection)
+    #
+    # library.add_books([harry_potter, LOTR, GOT, americannah])
+    # # print(library.books_available)
+    #
+    # quame = Borrower('Quame Jnr')
+    #
+    # library.lend_book_to(quame, LOTR)
+    # library.lend_books_to(quame, [GOT, harry_potter])
+    #
     # print(library.books_available)
-
-    quame = Borrower('Quame Jnr')
-
-    library.lend_book_to(quame, LOTR)
-    library.lend_books_to(quame, [GOT, harry_potter])
-
-    print(library.books_available)
-    library.receive_borrowed_book(quame, LOTR)
-    library.receive_borrowed_books(quame, [GOT, americannah])
-    print(library.books_available)
+    # library.receive_borrowed_book(quame, LOTR)
+    # library.receive_borrowed_books(quame, [GOT, americannah])
+    # print(library.books_available)
