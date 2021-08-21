@@ -151,6 +151,15 @@ class LinkedList:
         self.head = previous_node
         return
 
+    def reverse2(self):
+        current_node = self.head
+        previous_node = None
+        while current_node:
+            current_node.nxt, previous_node, current_node = previous_node, current_node, current_node.nxt
+
+        self.head = previous_node
+        return
+
     def reverse_rec(self, head):
         current_node = head
         # print(current_node.data)
@@ -222,8 +231,9 @@ if __name__ == '__main__':
     ll = LinkedList()
 
     ll.append_values([3, 4, 5, 6, 19, 8])
-    ll.print_forwards()
-    ll.reverse_rec(ll.head)
+    # ll.print_forwards()
+    # ll.reverse()
+    ll.reverse2()
     ll.print_forwards()
     # ll.print_backwards(ll.head)
 
