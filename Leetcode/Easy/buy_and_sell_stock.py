@@ -1,19 +1,20 @@
-def max_profit(nums: list[int]) -> int:
-    result = 0
+def max_profit(prices: list[int]) -> int:
+    """ Function to calculate the max profit we can sell a stock for."""
+    max_p = 0
 
     i = 0
     j = 1
-    l = len(nums)
+    l = len(prices)
 
-    min_num = nums[0]
+    min_price = prices[0]
 
     while j < l:
-        if nums[j] < nums[i]:
-            min_num = nums[j]
-            i, j = j, j + 1
+        if prices[j] < prices[i]:
+            min_price = prices[j]
+            i = j
         else:
-            difference = nums[j] - min_num
-            result = max(result, difference)
-            j += 1
+            profit = prices[j] - min_price
+            max_p = max(profit, max_p)
+        j += 1
 
-    return result
+    return max_p
