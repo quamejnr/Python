@@ -1,14 +1,17 @@
+def max_sub_array(numbers: list[int]) -> int:
+    """ Finding the contiguous sub array with the largest sum"""
+    first_number = numbers[0]
+    max_sum = first_number
+    current_sum = first_number
 
-def max_sub_array(nums: list[int]) -> int:
-    max_num = float('-inf')
+    remaining_numbers = numbers[1:]
 
-    total = 0
+    for number in remaining_numbers:
+        current_sum = max(current_sum + number, number)
+        max_sum = max(current_sum, max_sum)
 
-    for num in nums:
-        total += num
-        max_num = max(total, max_num)
-
-    return max_num
+    return max_sum
 
 
-print(max_sub_array([-2,1,-3,4,-1,2,1,-5,4]))
+if __name__ == '__main__':
+    pass
