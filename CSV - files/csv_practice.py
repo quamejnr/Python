@@ -7,6 +7,7 @@ with open('names.csv', 'r') as csv_file:
     # csv.reader just outputs the file in the same format as it is
     csv_reader = csv.reader(csv_file)
 
+
     with open('new_file.csv', 'w') as new_file:
         # when using csv.DictReader, fieldnames are to be provided before writing them off
         fieldnames = ['first_name', 'last_name', 'email']
