@@ -8,7 +8,7 @@ class Order:
         self.quantity = quantity
         self.paid = paid
 
-    def total_cost(self):
+    def total_cost(self) -> int:
         return self.price * self.quantity
 
 
@@ -52,12 +52,13 @@ class DebitCard(PaymentMethod):
 class CheckoutCounter:
 
     @staticmethod
-    def has_enough_money(order: Order, payment_method: PaymentMethod):
+    def has_enough_money(order: Order, payment_method: PaymentMethod) -> bool:
         return payment_method.money >= order.total_cost()
 
     def receive_payment(self, order: Order, payment_method: PaymentMethod):
         print('Verifying payment method...')
         payment_method.connect()
+
         if self.has_enough_money(order, payment_method):
             payment_method.money -= order.total_cost()
             print(f"Payment for {order.product} received\tBalance: {payment_method.money}\n")
