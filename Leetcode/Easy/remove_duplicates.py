@@ -39,5 +39,24 @@ def remove_duplicates2(nums: list) -> int:
     return j
 
 
+# A newer solution by me
+def remove_duplicates3(array: list[int]) -> int:
+    count = 1
+    i = 0
+    j = 1
+    l = len(array)
+
+    if l < 1:
+        return 0
+
+    while j < l:
+        if array[j] != array[i]:
+            i = j
+            count += 1
+        j += 1
+
+    return count
+
+
 if __name__ == '__main__':
     pass

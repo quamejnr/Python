@@ -1,5 +1,5 @@
 
-def remove_element(nums: list, val: int):
+def remove_element(nums: list[int], val: int) -> int:
     return len([num for num in nums if num != val])
 
 
