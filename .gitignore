@@ -6,3 +6,5 @@ new_file/
 venv/
 *.svg
 *.png
+.vscode/
+.DS_Store
