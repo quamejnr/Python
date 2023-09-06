@@ -9,6 +9,8 @@ pillow = "*"
 opencv-python = "*"
 python-dotenv = "*"
 pylint = "*"
+flask = "*"
+tornado = "*"
 
 [dev-packages]
 black = "*"

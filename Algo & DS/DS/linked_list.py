@@ -1,12 +1,12 @@
+from dataclasses import dataclass
 
+@dataclass
 class Node:
     """
     A data type that stores data and a reference to the next node
     """
-
-    def __init__(self, data, nxt=None):
-        self.data = data
-        self.nxt = nxt
+    data: int
+    nxt: int = None
 
 
 class LinkedList:
@@ -46,6 +46,7 @@ class LinkedList:
             current_node = current_node.nxt
             position += 1
         print('Node not found')
+
 
     def insert_at_head(self, data):
         """
@@ -220,6 +221,7 @@ if __name__ == '__main__':
     ll = LinkedList()
 
     ll.append_values([3, 4, 5, 6, 19, 8])
+    ll.search(5)
     # # ll.print_forwards()
     # ll.reverse()
     # ll.print_forwards()

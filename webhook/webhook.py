@@ -1,7 +1,7 @@
 import requests
 import json
 
-webhook_url = 'http://127.0.0.1:5000/webhook'
+webhook_url = "http://127.0.0.1:5000/webhook"
 
 data = {
     'name': 'Kwame',
@@ -11,9 +11,13 @@ data = {
 
 data_json = json.dumps(data)
 
-r = requests.post(webhook_url, data=data_json, headers={'Content-Type': 'application/json'})
+response = requests.post(data=data_json, headers={'Content-Type': 'application/json'})
 
-print("Data sent successful!!!")
+if response.status_code == 200:
+    print("Data sent successfully!!!")
 
-
-                                                        
+if response.status_code == 404:
+    print("Data failed ")
+else:
+    print("Something wen't wrong")   
+    

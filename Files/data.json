@@ -1,0 +1,34 @@
+{
+  "is_mymutti": true,
+  "is_draft": false,
+  "mu_is_guest": true,
+  "user_id": "1146",
+  "facility_id": "611f9015d62fb30076cff685",
+  "estimated_order_value": 3082.23,
+  "currency": "\u20a6",
+  "mu_sale_id": 3126127,
+  "mu_sale_uuid": "1e3cf484-b5c3-4991-800c-2e9b194539ad",
+  "mu_mpharma_id": "2406174",
+  "mu_patient_id": 355189,
+  "mu_member_info": {
+    "first_name": "Bethel",
+    "last_name": "Irumudomon",
+    "phone_number": "+2348161602430"
+  },
+  "mu_delivery_country": "NG",
+  "mu_delivery_city": "Lagos",
+  "mu_delivery_address": "Prime water view gardens 2, off freedom way, ikate",
+  "mu_delivery_note": "",
+  "mu_delivery_cost": 0,
+  "mu_discount": 0,
+  "order_items": [
+    {
+      "product_alias_id": "4991d928-461c-4200-9cea-342ca523bed4",
+      "product_name": "Menthodex Syr X1",
+      "product": "4991d928-461c-4200-9cea-342ca523bed4",
+      "quantity": 3,
+      "unit_cost_price": 1027.41,
+      "total_cost_price": 3082.2300000000005
+    }
+  ]
+}

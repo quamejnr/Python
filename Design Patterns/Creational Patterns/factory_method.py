@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 
+from cv2 import add
+
 
 class Order:
     def __init__(self, product: str, price: int, quantity: int, paid=False):
@@ -74,3 +76,4 @@ if __name__ == '__main__':
     counter = CheckoutCounter()
     counter.receive_payment(order1, visa_card)
     counter.receive_payment(order2, momo)
+
